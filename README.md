@@ -39,6 +39,16 @@ For responsive images:
 </picture>
 ```
 
+## Image Access
+
+All images placed in the `/assets/` directory will be directly accessible via URLs like:
+```
+https://files.royaltransfer.eu/assets/image-name.webp
+https://files.royaltransfer.eu/assets/image-name.png
+```
+
+These files are configured with proper cache headers for optimal performance.
+
 ## SEO Considerations
 
 This subdomain is intentionally not indexed by search engines to avoid duplicate content issues. All images should have proper alt text when used on the main site.
