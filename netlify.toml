@@ -1,11 +1,21 @@
 [build]
   publish = "."
+  # No build command needed for static assets
 
-# This only redirects to 404 when file doesn't exist (default Netlify behavior)
+# This redirects to 404 when file doesn't exist
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
+
+# Add CORS headers for all assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, OPTIONS"
+    Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 # Add explicit cache headers for image files
 [[headers]]
@@ -39,15 +49,11 @@
     Content-Type = "image/svg+xml"
 
 [[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
   for = "/*.(css|js)"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Security headers for all paths
 [[headers]]
   for = "/*"
   [headers.values]
