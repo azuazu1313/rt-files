@@ -1,0 +1,2 @@
+# Redirect requests for missing assets to the 404 page
+/assets/* /404.html 404

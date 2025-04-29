@@ -2,7 +2,7 @@
   publish = "."
   # No build command needed for static assets
 
-# This redirects to 404 when file doesn't exist
+# Redirects to 404 when file doesn't exist
 [[redirects]]
   from = "/*"
   to = "/404.html"
